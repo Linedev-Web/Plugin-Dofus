@@ -15,14 +15,11 @@ class CreateDofusServerscharactersTable extends Migration
     {
         Schema::create('dofus_serverscharacters', function (Blueprint $table) {
             $table->increments('Id');
-            $table->integer('CharacterId');
+            $table->unsignedInteger('CharacterId');
             $table->unsignedInteger('AccountId');
             $table->unsignedInteger('ServerId');
-
             $table->foreign('AccountId')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('CharacterId')->references('Id')->on('symbioz_world.characters');
             $table->foreign('ServerId')->references('Id')->on('dofus_worldservers');
-            $table->timestamps();
         });
     }
 
