@@ -2,13 +2,14 @@
     "id": "dofus",
     "name": "Dofus",
     "description": "Plugin for Azuriom",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "url": "https://azuriom.com",
     "authors": [
-        "Azuriom"
+        "Javdu10"
     ],
     "providers": [
         "\\Azuriom\\Plugin\\Dofus\\Providers\\DofusServiceProvider",
         "\\Azuriom\\Plugin\\Dofus\\Providers\\RouteServiceProvider"
-    ]
+    ],
+    "apiId" : 11
 }

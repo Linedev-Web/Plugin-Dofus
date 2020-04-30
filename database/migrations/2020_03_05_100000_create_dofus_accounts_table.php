@@ -19,6 +19,7 @@ class CreateDofusAccountsTable extends Migration
             $table->unsignedInteger('CharacterSlots')->default(5);
             $table->unsignedInteger('LastSelectedServerId')->nullable();
             $table->foreign('Id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
