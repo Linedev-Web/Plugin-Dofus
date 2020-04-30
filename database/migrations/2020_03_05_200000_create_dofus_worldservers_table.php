@@ -19,7 +19,7 @@ class CreateDofusWorldserversTable extends Migration
             $table->unsignedInteger('Type');
             $table->string('Host');
             $table->unsignedInteger('Port');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

@@ -15,7 +15,7 @@ class CreateDofusBanipsTable extends Migration
     {
         Schema::create('dofus_banips', function (Blueprint $table) {
             $table->string('Ip');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
