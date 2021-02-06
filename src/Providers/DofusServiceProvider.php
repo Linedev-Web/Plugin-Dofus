@@ -2,6 +2,7 @@
 
 namespace Azuriom\Plugin\Dofus\Providers;
 
+use PDO;
 use Azuriom\Extensions\Plugin\BasePluginServiceProvider;
 
 class DofusServiceProvider extends BasePluginServiceProvider
@@ -49,6 +50,44 @@ class DofusServiceProvider extends BasePluginServiceProvider
     {
         $this->registerMiddlewares();
 
+        config(['database.connections.dofus_world' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'decay__world',
+            'username' => 'root',
+            'password' => '',
+            'unix_socket' => '',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ]]);
+
+        config(['database.connections.dofus_auth' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'decay__auth',
+            'username' => 'root',
+            'password' => '',
+            'unix_socket' => '',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ]]);
+
         //
     }
 
@@ -94,7 +133,15 @@ class DofusServiceProvider extends BasePluginServiceProvider
     protected function adminNavigation()
     {
         return [
-            //
+            'dofus' => [
+                'name' => 'Dofus',
+                'type' => 'dropdown',
+                'icon' => 'fas fa-gamepad',
+                'route' => 'dofus.admin.*',
+                'items' => [
+                    'dofus.admin.index' => 'Comptes',
+                ],
+            ],
         ];
     }
 }

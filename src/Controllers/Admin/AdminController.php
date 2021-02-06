@@ -3,6 +3,7 @@
 namespace Azuriom\Plugin\Dofus\Controllers\Admin;
 
 use Azuriom\Http\Controllers\Controller;
+use Azuriom\Plugin\Dofus\Models\Character;
 
 class AdminController extends Controller
 {
@@ -13,6 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('dofus::admin.index');
+        dd(Character::all()->first());
+        return view('dofus::admin.index', ['caracters'=> '']);
     }
 }

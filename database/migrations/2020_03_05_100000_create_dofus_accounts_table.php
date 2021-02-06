@@ -13,12 +13,10 @@ class CreateDofusAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dofus_accounts', function (Blueprint $table) {
-            $table->unsignedInteger('Id')->unique();
-            $table->unsignedInteger('Role')->default(1);
-            $table->unsignedInteger('CharacterSlots')->default(5);
-            $table->unsignedInteger('LastSelectedServerId')->nullable();
-            $table->foreign('Id')->references('id')->on('users')->onDelete('cascade');
+        Schema::create('dofus_account_links', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('azuriom_user_id')->unique();
+            $table->unsignedInteger('dofus_game_id')->default(1);
             $table->timestamps(); 
         });
     }
@@ -30,6 +28,6 @@ class CreateDofusAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dofus_accounts');
+        // Schema::dropIfExists('dofus_accounts');
     }
 }

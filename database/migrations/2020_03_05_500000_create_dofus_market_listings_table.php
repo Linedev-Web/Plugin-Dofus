@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CreateDofusBanipsTable extends Migration
+class CreateDofusMarketListingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +14,13 @@ class CreateDofusBanipsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dofus_banips', function (Blueprint $table) {
-            $table->string('Ip');
+        Schema::create('dofus_market_listings', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('character_id');
+            $table->integer('price');
             $table->timestamps(); 
+
+            
         });
     }
 
@@ -26,6 +31,6 @@ class CreateDofusBanipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dofus_banips');
+        Schema::dropIfExists('dofus_market_listings');
     }
 }

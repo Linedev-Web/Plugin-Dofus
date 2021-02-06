@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'DofusHomeController@index');
+Route::get('/', 'AdminController@index')->name('index');
