@@ -41,7 +41,7 @@ class AccountController extends Controller
     }
 
     public function index() {
-        $account_links = AccountLink::where('azuriom_user_id', $user->id)->get();
+        $account_links = AccountLink::where('azuriom_user_id', 3)->get();
         $accounts = [];
 
         foreach ($account_links as $account_link) {

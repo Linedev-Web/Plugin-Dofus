@@ -8,3 +8,13 @@
 
 # Composer
 /vendor/
+/node_modules/
+
+
+
+#/resources/scss/
+#/resources/js/
+#/resources/img
+#package.json
+#package-lock.json
+#webpack.mix.js

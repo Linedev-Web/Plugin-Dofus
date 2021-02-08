@@ -25,15 +25,15 @@ class Character extends Model
             ->Where('OwnerId', $this->Id)
             ->where(function($query) {
                 $query
-                ->orWhere('Position', 0) // amulet
-                ->orWhere('Position', 1) // weapon
+                ->orWhere('Position', 0) // 0 amulet
+                ->orWhere('Position', 1) // 1 weapon
                 ->orWhere('Position', 2) // left ring
                 ->orWhere('Position', 3) // belt
                 ->orWhere('Position', 4) // right ring
                 ->orWhere('Position', 5) // boots
                 ->orWhere('Position', 6) // hat
                 ->orWhere('Position', 7) // cape
-                //->orWhere('Position', 8) // pets
+                ->orWhere('Position', 8) // pets
                 ->orWhere('Position', 9) // Dofus 1
                 ->orWhere('Position', 10) // Dofus 2
                 ->orWhere('Position', 11) // Dofus 3
@@ -43,6 +43,7 @@ class Character extends Model
                 ->orWhere('Position', 15) // shield
                 ->orWhere('Position', 16); // Mount
             })
+            ->orderBy('Position')
             ->get();
     }
 }
