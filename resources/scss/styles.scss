@@ -6,7 +6,7 @@ $image-path: './../img';
 
 
 @import "variables-override";
-@import "./node_modules/bootstrap/scss/bootstrap";
+@import "./node_modules/bootstrap/scss/root";
 @import "mixin";
 @import "market/market-content";
 @import "elements/element-content";
